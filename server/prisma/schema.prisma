@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String  @unique
+  password String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt 
+
+  Blog Blog []
+  Diplomas Diplomas []
+  Perfil Perfil?
+}
+
+model Perfil {
+  id Int @id @default(autoincrement())
+  user_id Int @unique
+  name String
+  description String?
+  course String?
+  grade String?
+  imageUrl String?
+  BannerUrl String?
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model Blog {
+  id Int @id @default(autoincrement())
+  author_id Int
+  category_id Int
+  image_url String?
+  title String 
+  subTitle String
+  content String
+
+  author User @relation(fields:[author_id], references: [id], onDelete: Cascade)
+  category Category @relation(fields: [category_id], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  referencies Referencies[]
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  name String
+
+  Blog Blog []
+}
+
+model Referencies {
+  id Int @id @default(autoincrement())
+  blog_id Int
+  title String
+  link String
+
+  blog Blog @relation(fields: [blog_id], references: [id], onDelete: Cascade)
+}
+
+model Diplomas {
+  id Int @id @default(autoincrement())
+  user_id Int
+  name String
+  institution String?
+  year Int
+  link String
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}

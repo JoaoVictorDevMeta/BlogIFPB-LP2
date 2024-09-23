@@ -1,0 +1,145 @@
+{
+  "users": [
+    {
+      "name": "joao victor",
+      "email": "joaovictor@gmail.com",
+      "description": "Sou engenheiro de software, apaixonado por tecnologia e inovação.",
+      "course": "Informática",
+      "password": "123456"
+    },
+    {
+      "name": "Raphael",
+      "email": "raphael@gmail.com",
+      "description": "Sou um médico apaixonado por saúde e bem-estar. Meu objetivo é ajudar as pessoas a viverem mais e melhor.",
+      "course": "Instrumento Musical",
+      "password": "654321"
+    },
+    {
+      "name": "Vitor Igor",
+      "email": "vitor@gmail.com",
+      "description": "Sou um entusiasta de estilo de vida saudável e estou sempre em busca de novas maneiras de melhorar a qualidade de vida.",
+      "password": "password123",
+      "diplomas": [
+        {
+          "name": "Nutrição",
+          "institution": "Universidade Federal da Paraíba",
+          "link": "#",
+          "year": 2018
+        },
+        {
+          "name": "Educação Física",
+          "institution": "Universidade Federal da Paraíba",
+          "link": "#",
+          "year": 2016
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "name": "Notícia"
+    },
+    {
+      "name": "Pesquisa"
+    },
+    {
+      "name": "Portaria"
+    },
+    {
+      "name": "Edital"
+    },
+    {
+      "name": "Evento"
+    },
+    {
+      "name": "Projeto"
+    },
+    {
+      "name": "Outros"
+    }
+  ],
+  "blogs": [
+    {
+      "author_id": 1,
+      "image_url": "https://s1.1zoom.me/big3/185/371623-svetik.jpg",
+      "title": "Primeiro Blog",
+      "subTitle": "Introduction to Technology",
+      "content": "This is the content of the first blog post. can be more but i will stop here.",
+      "category": "Notícia",
+      "references": [
+        {
+          "title": "TechCrunch",
+          "link": "https://techcrunch.com"
+        },
+        {
+          "title": "The Verge",
+          "link": "https://theverge.com"
+        }
+      ]
+    },
+    {
+      "author_id": 2,
+      "image_url": "https://files.tecnoblog.net/wp-content/uploads/2021/08/windows-365-testes-suspensao-768x410.png",
+      "title": "Health Tips",
+      "subTitle": "How to stay healthy",
+      "content": "A suspensão ocorreu pouco depois que a Microsoft liberou o Windows 365 ao público. Na segunda-feira (2), a companhia disponibilizou a contratação do serviço no Brasil e em outros países. Três planos são encontrados no catálogo: Basic, Standard e Premium. Em comum, as três modalidades oferecem compatibilidade com as versões desktop do Office, Outlook e OneDrive. Mas a versão Basic, por exemplo, tem suporte ao Microsoft Teams somente para chats e chamadas de voz. Para ter acesso à experiência completa, é preciso recorrer ao Standard, que é o plano intermediário do serviço.",
+      "category": "Notícia",
+      "references": [
+        {
+          "title": "TechCrunch",
+          "link": "https://techcrunch.com"
+        }
+      ]
+    },
+    {
+      "author_id": 3,
+      "image_url": "https://files.tecnoblog.net/wp-content/uploads/2021/07/windows-365-e1626278548676.jpg",
+      "title": "Lifestyle Choices",
+      "subTitle": "Making the right choices",
+      "content": "This is the content of the lifestyle choices blog post.",
+      "category": "Notícia",
+      "references": [
+        {
+          "title": "TechCrunch",
+          "link": "https://techcrunch.com"
+        }
+      ]
+    },
+    {
+      "author_id": 3,
+      "image_url": "https://th.bing.com/th/id/R.4d144616c2d902551953fb48fab43197?rik=Oaw8%2bqGoVrth3w&pid=ImgRaw&r=0",
+      "title": "Lifestyle Choices",
+      "subTitle": "Making the right choices",
+      "content": "This is the content of the lifestyle choices blog post.",
+      "category": "Projeto",
+      "references": []
+    },
+    {
+      "author_id": 3,
+      "image_url": "https://th.bing.com/th/id/R.4d144616c2d902551953fb48fab43197?rik=Oaw8%2bqGoVrth3w&pid=ImgRaw&r=0",
+      "title": "Lifestyle Choices",
+      "subTitle": "Making the right choices",
+      "content": "This is the content of the lifestyle choices blog post.",
+      "category": "Projeto",
+      "references": []
+    },
+    {
+      "author_id": 3,
+      "image_url": "https://th.bing.com/th/id/R.4d144616c2d902551953fb48fab43197?rik=Oaw8%2bqGoVrth3w&pid=ImgRaw&r=0",
+      "title": "Lifestyle Choices",
+      "subTitle": "Making the right choices",
+      "content": "This is the content of the lifestyle choices blog post.",
+      "category": "Projeto",
+      "references": []
+    },
+    {
+      "author_id": 3,
+      "image_url": "https://th.bing.com/th/id/R.4d144616c2d902551953fb48fab43197?rik=Oaw8%2bqGoVrth3w&pid=ImgRaw&r=0",
+      "title": "Lifestyle Choices",
+      "subTitle": "Making the right choices",
+      "content": "This is the content of the lifestyle choices blog post.",
+      "category": "Projeto",
+      "references": []
+    }
+  ]
+}

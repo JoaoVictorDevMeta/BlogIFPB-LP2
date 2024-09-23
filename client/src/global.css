@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root {
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --bs-body-font-family: "Red Hat Text", sans-serif;
+  --bs-body-bg: #EEE9DA;
+  --bs-primary-rgb: rgb(28, 103, 88);
+  --bs-secondary-bg: #D6CDA4;
+  --bs-tertiary-bg: #EEF2E6;
+  --bs-primary: #1C6758;
+  --bs-primary-bg-subtle: #393646;
+  --bs-primary-text-emphasis: #1C6758;
+  --primary: #1C6758;
+  --secondary: #3D8361;
+}
+
+html,
+body,
+#root{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100dvh;
+}
+#root{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+*{transition: 0.2s;}
+
+header, main, footer{
+  width: 100%;
+}
+
+main{
+  max-width: 1800px;
+}
+
+input:focus-visible{
+  outline: none;
+  border-bottom: 3px solid var(--primary);
+}
+
+.logo{
+  font-size: 36px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+.nav-link{
+  font-size: 24px;
+  font-weight: 400;
+}
+.nav-bar-input{
+  background: none;
+  border: none;
+  border-bottom: 2px solid rgb(54, 54, 54);
+  color: var(--bs-primary-bg-subtle);
+  font-size: 20px;
+  padding: 5px;
+}
+.button-outline{
+  transition: 0.2s;
+  border: 1px solid var(--primary);
+}
+.button-outline:hover{
+  background-color: var(--primary);
+  color: white;
+}
+.navbar-nav{
+  justify-content: center;
+}
+small{color: red;}
+

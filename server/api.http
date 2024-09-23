@@ -1,0 +1,82 @@
+@domain = http://localhost:3000
+@userId = {{createdUser.response.body.$.id}}
+
+###
+GET {{domain}}/blog/all
+
+###
+GET {{domain}}/blog/search/?search=life
+
+###
+GET {{domain}}/blog/1
+
+### atualizar blog
+PUT {{domain}}/blog/1
+Content-Type: application/json
+
+{
+    "title": "blog 5",
+    "content": "blaewqeqwwqhblahblah"
+}
+
+###
+DELETE {{domain}}/blog/1
+
+
+### ALL user ROUTES
+### ---------------
+### rota usuarios
+GET {{domain}}/user/all
+
+### rota usuario unico
+GET {{domain}}/user/{{userId}}
+
+### rota criar usuario
+# @name createdUser
+POST {{domain}}/auth/register
+Content-Type: application/json
+
+{
+    "name": "Luanna",
+    "email": "Luanna@gmail.com",
+    "password": "123456",
+    "course": "Informática"
+}
+
+### rota atualizar usuario
+PUT {{domain}}/user/4
+Content-Type: application/json
+
+{
+    "userData":{
+        "email": "vitorigor@gmail.com",
+        "password": "123456"
+    },
+    "perfilData": {
+        "name": "VITORIGOR"
+    }
+}
+
+### rota deletar usuario
+DELETE {{domain}}/user/4
+
+###
+GET {{domain}}/user/1
+
+###
+POST {{domain}}/blog/3
+Content-Type: application/json
+
+{
+    "title":"teste",
+    "content": "teste",
+    "description": "teste",
+    "subTitle":"test1"
+}
+
+### rota deletar categoria
+DELETE {{domain}}/category/Education
+
+### rota criar categoria
+POST {{domain}}/category/Education
+Content-Type: application/json

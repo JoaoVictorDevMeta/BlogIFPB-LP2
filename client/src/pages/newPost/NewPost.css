@@ -1,0 +1,80 @@
+.post-container{
+    margin: 50px auto;
+    background: white;
+    width: 80%;
+    min-width: 300px;
+    max-width: 800px;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.post-container h1{
+    border-bottom: 4px solid var(--primary);
+    padding-bottom: 20px;
+    width: 50%;
+    margin-bottom: 40px;
+}
+
+.new-blog-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-blog-form textarea{
+    background: white;
+    color: black;
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+.input-container{
+    width: 80%;
+    min-width: 250px;
+}
+.input-container textarea{
+    width: 100%;
+}
+
+.new-blog-form .content{
+    font-size: 18px;
+    height: 300px;
+}
+.input-container label{
+    font-size: 24px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.title-input{
+    display: flex;
+    align-items: center;
+}
+
+.new-blog-form input{
+    background: white;
+    border: none;
+    border-bottom: 2px solid var(--primary);
+    color: black;
+    width: 100%;
+    font-size: 20px; 
+}
+
+.sample-button{
+    margin-top: 20px;
+    height: 50px;
+    width: 210px;
+    border-radius: 100px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.sample-button:active{
+    background-color: white;
+    color: var(--primary);
+}

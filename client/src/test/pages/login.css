@@ -1,0 +1,102 @@
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #EEE9DA;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.header {
+    background-color: #EEE9DA;
+    color: #FFFFFF;
+    padding: 5px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.header-content h1 {
+    margin: 0;
+}
+
+.inicio-button,
+.alunos-button,
+.cadastro-button {
+    background-color: transparent;
+    border: none;
+    color: #393646;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.cadastro-button {
+    margin-left: auto;
+    /* Alinha o botão à direita */
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.registration-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-left: -10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #1C6758;
+    color: white;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3D8361;
+    border-radius: 100px;
+}

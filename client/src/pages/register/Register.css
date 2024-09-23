@@ -1,0 +1,46 @@
+.information {
+    flex: 2;
+} 
+.login-form {
+    flex: 3;
+}
+@media (max-width: 1140px) {
+    .register-container {
+      flex-direction: column-reverse !important;
+    }
+}
+.register-container{
+    background: white;
+}
+.information{background: var(--primary); color: white;}
+.login-form form{
+    width: 500px;
+}
+.login-form input{
+    background-color: white;
+    border: none;
+    border: 1px solid black;
+    border-radius: 5px; 
+    color: black;
+}
+.form-group {
+    display: flex;
+    justify-content: space-between;
+}
+.form-group > input {
+    flex: 1; 
+    width: 220px;  
+}
+@media (max-width: 600px) {
+    .form-group {
+        flex-direction: column;
+    }
+    .form-group input {
+        margin:0 !important;
+    }
+}
+.input-text{ height: 110px; display: flex;
+    flex-direction: column;}
+.link-info{ left: 0; bottom: 50px;}
+.link-info a{ color: white; text-decoration: none; transition: 0.2s;}
+.link-info a:hover{ opacity: 0.7;}

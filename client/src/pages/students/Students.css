@@ -1,0 +1,13 @@
+.students-container{
+    list-style: none;
+    padding: 0;
+
+    li{
+        a{
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 32px;
+        }
+    }
+}

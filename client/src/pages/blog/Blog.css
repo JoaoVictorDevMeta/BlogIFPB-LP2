@@ -1,0 +1,174 @@
+.red-hat display:root {
+    font-family: "Red Hat Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    color-scheme: light dark;
+    color: rgba(12, 12, 12, 0.87);
+    background-color: #eee9da;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.conteudo-xxl {
+    font-size: 28px;
+    background: #fff;
+}
+
+.conteudo-title {
+    font-family: "Red Hat Display", sans-serif;
+}
+
+.category {
+    font-family: "Red Hat Display", sans-serif;
+    padding-top: 20px;
+}
+
+.category p {
+    font-family: "Red Hat Display", sans-serif;
+    background: #1c8758;
+    max-width: 400px;
+    font-size: 32px;
+    color: #fff;
+    padding-left: 30px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.conteudo-subtitle p {
+    font-family: "Red Hat Display", sans-serif;
+}
+
+.conteudo-xxl hr {
+    margin-top: -20px;
+    position: absolute;
+}
+
+.conteudo-card {
+    padding: 10px 0;
+    max-width: 300px;
+    width: 70%;
+    display: flex;
+}
+
+.conteudo-card .card-image {
+    max-width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: grid;
+}
+
+.conteudo-card .card {
+    display: grid;
+    padding: 0px 10px;
+}
+
+.card .card-title {
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 18px;
+    color: #1c8758;
+    margin: 7px 0;
+}
+
+.card .card-text {
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 15px;
+    color: black;
+    display: inline;
+    margin: 0;
+}
+
+.conteudo-imagem {
+    margin-top: 60px;
+    justify-content: center;
+}
+.card-image{object-fit: cover;}
+.conteudo-imagem .imagem-inicial {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+}
+
+.conteudo-imagem .descricao {
+    font-family: "Red Hat Display", sans-serif;
+    margin: 0 2.5%;
+    font-size: 20px;
+    margin-bottom: 60px;
+}
+
+.conteudo-texto {
+    font-family: "Red Hat Display", sans-serif;
+    justify-content: center;
+}
+
+.conteudo-texto .texto {
+    font-family: "Red Hat Display", sans-serif;
+    margin-left: 2.5%;
+    margin-top: 0;
+    padding-bottom: 5px;
+    font-size: 25px;
+}
+
+.conteudo-titulo {
+    font-family: "Red Hat Display", sans-serif;
+    margin-left: 2.5%;
+    font-size: 40px;
+}
+
+.autor-xxl {
+    background: #d6cda4;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.autor-xxl .autor-image {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.autor .autor-title {
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 32px;
+    margin: 7px 0;
+}
+.autor{    width: 70%;
+    min-width: 300px;
+    padding-left: 50px;}
+.autor .autor-descricao {
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 22px;
+    color: black;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.autor .autor-text {
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 18px;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    width: 90%;
+}
+.relacionados-xxl {
+    height: 800px;
+}
+.relacionados-xxl h1 {
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 40px;
+    margin-left: 2.5%;
+}

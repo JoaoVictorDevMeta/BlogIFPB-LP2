@@ -1,0 +1,22 @@
+.imageac img {
+    width: 213px;
+    height: 213px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.account{align-items: center;}
+.account > .text{ width: 230px;}
+.social-media{list-style: none;}
+@media (max-width: 768px){
+    .account { justify-content: center;}
+}
+.background {
+    background-color: rgb(184, 192, 111);
+    text-align: justify;
+    font-size: medium;
+    padding: 30px 80px;
+}
+.postages{
+    margin-top: 50px;
+    text-decoration: black;
+}
