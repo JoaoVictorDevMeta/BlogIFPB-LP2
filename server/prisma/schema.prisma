@@ -28,7 +28,7 @@ model Perfil {
   course String?
   grade String?
   imageUrl String?
-  BannerUrl String?
+  bannerUrl String?
 
   user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
 }

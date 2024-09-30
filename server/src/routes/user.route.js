@@ -1,17 +1,14 @@
 import express from 'express'
-import { PrismaClient } from '@prisma/client'
+import User from '../models/user.js'
+import bcrypt from 'bcrypt';
 
 const router = express.Router()
-const prisma = new PrismaClient()
+const saltRounds = Number(process.env.BCRYPT_SALT); 
 
 //rota para listar todos os usuários
 router.get('/all', async (req, res) => {
     try{
-        const users = await prisma.user.findMany({
-            include: {
-                Perfil: true
-            }
-        })
+        const users = await User.readAll()
 
         res.json(users)
     }catch(err){
@@ -23,23 +20,12 @@ router.get('/all', async (req, res) => {
 //rota para criar um usuário
 router.post('/new', async (req,res) => {
     try{
-        const data = req.body
+        //passando todos os atributos 
+        //para facilitar correções futuras
+        const { name, email, password, course, imageUrl, grade, description } = req.body
 
-        const user = await prisma.user.create({
-            data: {
-                email: data.email,
-                password: data.password,
-                Perfil: {
-                    create: {
-                        image_url: data?.image_url,
-                        name: data.name,
-                        course: data?.course,
-                        grade: data?.grade,
-                        description: data?.description,
-                    }
-                }
-            }
-        })
+        //realizando a criação a partir do model
+        const user = await User.create({name, email, password, course, imageUrl, grade, description})
 
         res.json(user)
     }catch (err){
@@ -49,33 +35,24 @@ router.post('/new', async (req,res) => {
 })
 
 //rota para atualizar um usuário pelo id
-router.put('/:id', async (req, res) => {
+router.put('/update/:id', async (req, res) => {
     try{
         const {userData, perfilData} = req.body
         const {id} = req.params
 
-        const user = await prisma.user.update({
-            where: {
-                id: parseInt(id)
-            },
-            data: {
-                email: userData.email,
-                password: userData.password,
-            }
-        })
+        const {email, password} = userData
+        //como vai se atualizara senha, é necessário encriptografar a nova senha
+        //utilizaremos o mesmo método propost no registro
+        //nsesse caso vamos defini-la abaixo
+        const hashedPasswd = await bcrypt.hash(password, saltRounds);
 
-        const perfil = await prisma.perfil.update({
-            where: {
-                user_id: parseInt(id)
-            },
-            data: {
-                image_url: perfilData?.image_url,
-                name: perfilData.name,
-                course: perfilData?.course,
-                grade: perfilData?.grade,
-                description: perfilData?.description,
-            }
-        })
+        //fazendo primeiro no usuario
+        //ou seja, nas parte onde há credenciais
+        const user = await User.updateUser(id, {email, password: hashedPasswd})
+
+        //a seguir no perfil, ou seja
+        //informações a mais        
+        const perfil = await User.updatePerfil(id, perfilData)
 
         const response = {
             ...user,
@@ -89,17 +66,13 @@ router.put('/:id', async (req, res) => {
 })
 
 //rota para apagar um usuário
-router.delete('/:id', async (req,res) => {
+router.delete('/delete/:id', async (req,res) => {
     try{
         const {id} = req.params
 
-        const user = await prisma.user.delete({
-            where: {
-                id: parseInt(id)
-            },
-        })
+        const user = await User.deleteUser(id)
 
-        res.json(user)
+        res.status(204).json(user)
     }catch(err){
         console.log(err)
         res.status(500).send(err)
@@ -111,14 +84,7 @@ router.get('/:id', async (req,res) => {
     try{
         const {id} = req.params
 
-        const user = await prisma.user.findUnique({
-            where: {
-                id: parseInt(id)
-            },
-            include: {
-                Perfil: true
-            }
-        })
+        const user = await User.readOne(id)
 
         res.json(user)
     }catch(err){
