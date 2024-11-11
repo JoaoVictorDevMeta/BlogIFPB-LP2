@@ -12,6 +12,8 @@ import Navbar from "./ui/partials/Navbar"
 import NewPost from "./pages/newPost/NewPost";
 import EditPost from "./pages/editPost/EditPost";
 
+import PrivateRoute from './data/hooks/auth/PrivateRoute'
+
 function App() {
   return (
     <>
@@ -26,7 +28,9 @@ function App() {
           <Route path="/newpost" element={<NewPost/>}/>
           <Route path="/editblog/:blogId" element={<EditPost/>}/>
           <Route path="/search" element={<Search/>}/>
-          <Route path="/profile/:id" element={<Profile/>}/>
+          <Route path="/profile" element={<PrivateRoute/>}>
+            <Route path=":id" element={<Profile/>}/>
+          </Route>
         </Routes>
       </main>
     </>

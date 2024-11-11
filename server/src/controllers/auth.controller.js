@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken'
 import User from '../models/user.js';
 
 const saltRounds = Number(process.env.BCRYPT_SALT); //assumindo valor do Salt
@@ -8,7 +9,7 @@ export async function register(req, res){
     console.log(req.body)
 
     if( !name || !email || !password || !course ){ //validando existencia de valores nos campos
-        res.status(400).send("campos incompletos");
+        res.status(400).send("Campos incompletos");
     }
 
     try{
@@ -20,6 +21,34 @@ export async function register(req, res){
         if(err.code === "P2002"){
             return res.status(400).send("Esse usuário já existe");
         }
+        console.log(err)
+        res.status(500).send(err)
+    }
+}
+
+export async function login(req, res) {
+    const email = req.body.email
+    const password = req.body.password
+
+    if(!email || !password) {
+        res.status(400).send("Campos incompletos")
+    }
+
+    try{
+        const user = await User.readByEmail(email);
+        //console.log(user, password)
+
+        if(await bcrypt.compare(password, user.password)){
+            //lembrar de criar .env
+            const token = jwt.sign({id: User.id}, process.env.JWT_SECRET); //token de acesso
+
+            //separando senha das informações de usuário
+            const { password: pass, ...validUser} = user;
+
+            return res.json({User: validUser, token})
+        }
+        return res.status(401).json('Usuário ou senha inválidos')
+    }catch (err){
         console.log(err)
         res.status(500).send(err)
     }

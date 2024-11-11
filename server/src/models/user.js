@@ -71,5 +71,15 @@ async function readOne(id){
         }
     })
 }
+async function readByEmail(email){
+    return await prisma.user.findUnique({
+        where: {
+            email
+        },
+        include: {
+            Perfil: true
+        }
+    })
+}
 
-export default { create, readAll, updatePerfil, readOne, deleteUser, updateUser }
+export default { create, readAll, updatePerfil, readOne, deleteUser, updateUser, readByEmail }
