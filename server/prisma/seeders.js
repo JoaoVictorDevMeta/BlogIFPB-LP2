@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 const saltRounds = Number(process.env.BCRYPT_SALT); //assumindo valor do Salt
 
 async function main() {
-  const data = JSON.parse(fs.readFileSync("src/db/seed.json", "utf-8"));
+  const data = JSON.parse(fs.readFileSync("prisma/seed.json", "utf-8"));
 
   // Criar usuários
   // cria os diplomas caso seja professor

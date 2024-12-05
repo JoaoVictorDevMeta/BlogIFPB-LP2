@@ -8,7 +8,7 @@
     "db:load": "node src/db/seeders.js"
   },
   "prisma": {
-    "seed": "node src/db/seeders.js"
+    "seed": "node prisma/seeders.js"
   },
   "author": "",
   "type": "module",

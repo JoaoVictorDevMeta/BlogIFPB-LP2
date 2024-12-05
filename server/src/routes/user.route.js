@@ -1,6 +1,8 @@
 import express from 'express'
-import User from '../models/user.js'
 import bcrypt from 'bcrypt';
+
+import User from '../models/user.js'
+import { isAuthenticated } from '../middleware/tokenValidation.js';
 
 const router = express.Router()
 const saltRounds = Number(process.env.BCRYPT_SALT); 
@@ -17,28 +19,23 @@ router.get('/all', async (req, res) => {
     }
 })
 
-//rota para criar um usuário
-router.post('/new', async (req,res) => {
+//rota para buscar um usuário pelo id
+router.get(isAuthenticated, '/:id', async (req,res) => {
     try{
-        //passando todos os atributos 
-        //para facilitar correções futuras
-        const { name, email, password, course, imageUrl, grade, description } = req.body
-
-        //realizando a criação a partir do model
-        const user = await User.create({name, email, password, course, imageUrl, grade, description})
+        const id = req.params
+        const user = await User.readOne(id)
 
         res.json(user)
-    }catch (err){
-        console.log(err)
-        res.status(500).send(err)
+    }catch(err){
+        res.status(500).json(err)
     }
 })
 
 //rota para atualizar um usuário pelo id
-router.put('/update/:id', async (req, res) => {
+router.put(isAuthenticated, '/update', async (req, res) => {
     try{
         const {userData, perfilData} = req.body
-        const {id} = req.params
+        const id = req.userId
 
         const {email, password} = userData
         //como vai se atualizara senha, é necessário encriptografar a nova senha
@@ -61,34 +58,20 @@ router.put('/update/:id', async (req, res) => {
         res.json(response)
     }catch(err){
         console.log(err)
-        res.status(500).send(err)
+        res.status(500).json(err)
     }
 })
 
 //rota para apagar um usuário
-router.delete('/delete/:id', async (req,res) => {
+router.delete(isAuthenticated, '/delete', async (req,res) => {
     try{
-        const {id} = req.params
-
+        const id = req.userId
         const user = await User.deleteUser(id)
 
         res.status(204).json(user)
     }catch(err){
         console.log(err)
-        res.status(500).send(err)
-    }
-})
-
-//rota para buscar um usuário pelo id
-router.get('/:id', async (req,res) => {
-    try{
-        const {id} = req.params
-
-        const user = await User.readOne(id)
-
-        res.json(user)
-    }catch(err){
-        res.status(500).send(err)
+        res.status(500).json(err)
     }
 })
 
