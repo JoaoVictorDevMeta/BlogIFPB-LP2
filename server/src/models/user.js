@@ -1,5 +1,35 @@
 import prisma from "../db/database.js";
 
+async function readAll() {
+  return await prisma.user.findMany({
+    include: {
+      Perfil: true,
+    },
+  });
+}
+
+async function readOne(id) {
+  return await prisma.user.findUnique({
+    where: {
+      id: parseInt(id),
+    },
+    include: {
+      Perfil: true,
+    },
+  });
+}
+
+async function readByEmail(email) {
+  return await prisma.user.findUnique({
+    where: {
+      email,
+    },
+    include: {
+      Perfil: true,
+    },
+  });
+}
+
 async function create({
   name,
   email,
@@ -35,14 +65,6 @@ async function create({
   return await prisma.user.create({ data });
 }
 
-async function readAll() {
-  return await prisma.user.findMany({
-    include: {
-      Perfil: true,
-    },
-  });
-}
-
 async function updateUser(id, { email, password }) {
   return await prisma.user.update({
     where: {
@@ -76,30 +98,11 @@ async function updatePerfil(
     },
   });
 }
+
 async function deleteUser(id) {
   return await prisma.user.delete({
     where: {
       id: parseInt(id),
-    },
-  });
-}
-async function readOne(id) {
-  return await prisma.user.findUnique({
-    where: {
-      id: parseInt(id),
-    },
-    include: {
-      Perfil: true,
-    },
-  });
-}
-async function readByEmail(email) {
-  return await prisma.user.findUnique({
-    where: {
-      email,
-    },
-    include: {
-      Perfil: true,
     },
   });
 }
