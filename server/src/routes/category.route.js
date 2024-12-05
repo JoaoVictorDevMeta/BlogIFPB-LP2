@@ -1,54 +1,56 @@
 import express from "express";
-import { PrismaClient } from "@prisma/client";
+import { isAuthenticated } from "../middleware/tokenValidation";
+import category from "../models/category";
 
 const router = express.Router();
-const prisma = new PrismaClient();
-
-router.get('', (req, res) => {
-    res.send('category route')
-})
 
 //rota para criar uma categoria
-router.post('/:categoryName', async (req,res) => {
+router.post(isAuthenticated, '/create', async (req,res) => {
     try{
-        const { categoryName } = req.params;
+        const {name} = req.body;
 
+        const category = await category.findByName(name)
 
-        const newCategory = await prisma.category.create({
-            data: {
-                name: categoryName
-            }
-        })
+        if(category){
+            return res.status(400).json({error: 'Categoria já existe'})
+        }
+
+        const newCategory = await category.create(name)
 
         res.json(newCategory)
     }catch (err){
         console.log(err)
-        res.status(500).send(err)
+        res.status(500).json(err)
     }
 })
 
 //rota para deletar uma categoria
-router.delete('/:id', async (req,res) => {
+router.delete(isAuthenticated, '/:id', async (req,res) => {
     try{
-        const { id } = req.params
+        const id = parseInt(req.params.id)
 
-        const category = await prisma.category.delete({
-            where: {
-                id
-            }
-        })
+        if(isNaN(id)){
+            res.status(400).json({error: 'Id inválido'})
+            return
+        }
 
-        res.json(category)
+        const category = await category.deleteOne(id)
+
+        if(!category){
+            res.status(404).json({error: 'Categoria não encontrada'})
+        }
+
+        res.sendStatus(204)
     }catch(err){
         console.log(err)
-        res.status(500).send(err)
+        res.status(500).json(err)
     }
 })
 
 //rota para listar todas as categorias
-router.get('/all', async (req, res) => {
+router.get(isAuthenticated, '/all', async (req, res) => {
     try{
-        const categories = await prisma.category.findMany()
+        const categories = await category.readAll()
 
         res.json(categories)
     }catch(err){
@@ -56,7 +58,5 @@ router.get('/all', async (req, res) => {
         res.status(500).send(err)
     }
 });
-
-//rota listar todos os blogs de uma categoria
 
 export default router;

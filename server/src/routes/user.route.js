@@ -20,10 +20,19 @@ router.get('/all', async (req, res) => {
 })
 
 //rota para buscar um usuário pelo id
-router.get(isAuthenticated, '/:id', async (req,res) => {
+router.get('/:id', async (req,res) => {
     try{
-        const id = req.params
+        const id = parseInt(req.params.id)
+
+        if(isNaN(id)){
+            return res.status(400).json({error: 'Id inválido'})
+        }
+
         const user = await User.readOne(id)
+
+        if(!user){
+            return res.status(404).json({error: 'Usuário não encontrado'})
+        }
 
         res.json(user)
     }catch(err){
