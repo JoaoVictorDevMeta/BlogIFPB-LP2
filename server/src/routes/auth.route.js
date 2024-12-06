@@ -1,13 +1,15 @@
-import express from 'express';
-import { register, login } from '../controllers/auth.controller.js';
-import { isAuthenticated } from '../middleware/tokenValidation.js'
+import express from "express";
+import { register, login } from "../controllers/auth.controller.js";
+import { isAuthenticated } from "../middleware/tokenValidation.js";
+import { validate } from "../middleware/validate.js";
+import { registerSchema, loginSchema } from "../validators/authSchema.js";
 
 const router = express.Router();
 
-router.post('/register', register);
-router.post('/login', login);
-router.post('/validate', isAuthenticated, (req, res)=>{
-    res.status(200).json({message: 'OK', isValid: true})
-})
+router.post("/register", validate(registerSchema), register);
+router.post("/login", validate(loginSchema), login);
+router.post("/validate", isAuthenticated, (req, res) => {
+    res.status(200).json({ message: "OK", isValid: true });
+});
 
-export default router
+export default router;

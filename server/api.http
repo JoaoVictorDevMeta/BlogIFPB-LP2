@@ -1,82 +1,91 @@
 @domain = http://localhost:3000
 @userId = {{createdUser.response.body.$.id}}
+@token = {{login.response.body.$.token}}
 
-###
-GET {{domain}}/blog/all
-
-###
-GET {{domain}}/blog/search/?search=life
-
-###
-GET {{domain}}/blog/1
-
-### atualizar blog
-PUT {{domain}}/blog/1
-Content-Type: application/json
-
-{
-    "title": "blog 5",
-    "content": "blaewqeqwwqhblahblah"
-}
-
-###
-DELETE {{domain}}/blog/1
-
-
-### ALL user ROUTES
-### ---------------
-### rota usuarios
-GET {{domain}}/user/all
-
-### rota usuario unico
-GET {{domain}}/user/1
-
-### rota criar usuario
+### Register
 # @name createdUser
 POST {{domain}}/auth/register
 Content-Type: application/json
 
 {
-    "name": "Luanna",
-    "email": "Luanna@gmail.com",
+    "name": "João Victor",
+    "email": "joaovictorgouveiar@gmail.com",
     "password": "123456",
     "course": "Informática"
 }
 
-### rota atualizar usuario
-PUT {{domain}}/user/update/2
+### login
+# @name login
+POST {{domain}}/auth/login
 Content-Type: application/json
 
 {
-    "userData":{
-        "email": "vitorigor@gmail.com",
-        "password": "123456"
-    },
+    "email": "joaovictorgouveiar@gmail.com",
+    "password": "123456"
+}
+
+### ----------------------------------------------
+### --------------------BLOG---------------------
+
+### all blogs
+GET {{domain}}/blog/all
+
+### get blog
+GET {{domain}}/blog/1
+
+### create blog
+POST {{domain}}/blog/create
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "category": "Pesquisa",
+    "title": "'Harry Potter': Paapa Essiedu é cotado para interpretar Snape na série, diz site",
+    "subTitle": "Descrição do blog 1",
+    "content": "O ator britânico Paapa Essiedu, 34, conhecido por sua participação nas séries 'I May Destroy You' e 'Gangs of London', pode dar vida ao professor Severus Snape na série de 'Harry Potter'. Segundo o The Hollywood Reporter, a HBO lhe ofereceu o papel. No entanto, não está claro se as negociações foram adiante. Na adaptação cinematográfica dos livros de J.K. Rowling, o personagem foi interpretado por Alan Rickman. ",
+    "image_url": "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1vkAOm.img?w=768&h=432&m=6&x=733&y=123&s=264&d=264"
+}
+
+### ----------------------------------------------
+### --------------------USER---------------------
+
+### getUser
+GET {{domain}}/user/1
+
+### updatePerfil
+PUT {{domain}}/user/update
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "userData": {},
     "perfilData": {
-        "name": "VITORIGOR"
+        "name": "João Victor Gouveia"
     }
 }
 
-### rota deletar usuario
-DELETE {{domain}}/user/delete/5
+### Delete User
+DELETE {{domain}}/user/delete
+Authorization: Bearer {{token}}
 
-###
-GET {{domain}}/user/1
+### ----------------------------------------------
+### --------------------CATEGORY---------------------
 
-###
-POST {{domain}}/blog/3
+### all categories
+GET {{domain}}/category/all
+
+### get category    
+GET {{domain}}/category/1
+
+### create category
+POST {{domain}}/category/create
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-    "title":"teste",
-    "content": "teste",
-    "description": "teste",
-    "subTitle":"test1"
+    "name": "PaoComZovo"
 }
 
-### rota deletar categoria
-DELETE {{domain}}/category/Education
-
-### rota criar categoria
-POST {{domain}}/category/Education
-Content-Type: application/json
+### delete category
+DELETE {{domain}}/category/7
+Authorization: Bearer {{token}}

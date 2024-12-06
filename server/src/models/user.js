@@ -96,6 +96,9 @@ async function updatePerfil(
         },
       },
     },
+    include: {
+      Perfil: true, 
+    },
   });
 }
 

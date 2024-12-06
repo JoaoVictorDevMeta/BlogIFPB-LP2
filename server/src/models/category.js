@@ -43,4 +43,4 @@ async function deleteOne(id) {
   });
 }
 
-export default { create, readAll, readOne, update, deleteOne };
+export default { create, readAll, readOne, update, deleteOne, readByName };

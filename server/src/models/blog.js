@@ -51,7 +51,7 @@ async function updateContent(id, data) {
   });
 }
 
-async function updateCategory(id, { category_id }) {
+async function updateCategory(id, category_id) {
   return await prisma.blog.update({
     where: {
       id,
