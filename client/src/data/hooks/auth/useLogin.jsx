@@ -30,7 +30,8 @@ const useLogin = () => {
       //TASK FUTURA - adicionar no projects
       //tipos de erro: 401 (credenciais incorretas), 400(Campos incompletos), 500(erro no servidor)
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        const error = await response.json();
+        throw new Error(error);
       }
 
       //pegando a resposta em json
@@ -51,9 +52,16 @@ const useLogin = () => {
         navigate(`/profile/${userData.User.id}`);
       });
     } catch (error) {
+      console.log(error);
+      if (error.message === "Failed to fetch") {
+        return Swal.fire({
+          text: "Erro ao tentar fazer login, tente novamente mais tarde",
+          icon: "error",
+          confirmButtonText: "Tentar Novamente",
+        });
+      }
       Swal.fire({
-        title: "Erro",
-        text: "Email ou senha incorretos",
+        text: error,
         icon: "error",
         confirmButtonText: "Tentar Novamente",
       });

@@ -15,9 +15,8 @@ const PrivateRoute = () => {
     const checkAuthentication = async () => {
       try {
         const options = {
-          method: 'POST',
+          method: 'GET',
           headers: {
-            'Content-Type': 'application/json',
             'Authorization': `Bearer ${isAuthenticated}`,
           }
         };

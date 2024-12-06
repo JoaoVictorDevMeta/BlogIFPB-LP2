@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post("/register", validate(registerSchema), register);
 router.post("/login", validate(loginSchema), login);
-router.post("/validate", isAuthenticated, (req, res) => {
+router.get("/validate", isAuthenticated, (req, res) => {
     res.status(200).json({ message: "OK", isValid: true });
 });
 
