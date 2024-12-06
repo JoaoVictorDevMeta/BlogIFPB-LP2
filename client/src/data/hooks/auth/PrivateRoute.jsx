@@ -56,6 +56,8 @@ const PrivateRoute = () => {
 
   //redirecionao usuário para login caso não esteja autenticado
   if (!authenticated) {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
     return <Navigate to="/login" />; 
   }
 

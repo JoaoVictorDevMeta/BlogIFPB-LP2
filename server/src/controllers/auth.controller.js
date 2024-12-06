@@ -20,7 +20,7 @@ export async function register(req, res) {
     res.status(201).json(newUser);
   } catch (err) {
     if (err.code === "P2002") {
-      return res.status(400).send("Esse usuário já existe");
+      return res.status(400).json("Esse usuário já existe");
     }
     console.log(err);
     res.status(500).send(err);

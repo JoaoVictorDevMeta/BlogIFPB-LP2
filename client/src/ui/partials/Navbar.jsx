@@ -69,6 +69,7 @@ const Navbar = () => {
             <h5>{user.Perfil.course}</h5>
             <p>{user.email}</p>
           </div>
+          <Link to="/newpost">| Postar um blog</Link>
           <button className="btn button-outline" onClick={() => {logout(navigate)}}>
             Logout
           </button>

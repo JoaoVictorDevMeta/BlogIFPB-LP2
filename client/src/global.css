@@ -55,7 +55,7 @@ input:focus-visible {
 nav {
   position: relative;
   background: #eee9da;
-  z-index: 2;
+  z-index: 100;
 }
 .logo {
   font-size: 36px;
@@ -115,6 +115,7 @@ small {
   width: 100%;
   min-height: 200px;
   right: 0;
+  z-index: 10;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   display: flex;
@@ -133,6 +134,14 @@ small {
       font-weight: 700;
       color: rgb(28, 103, 88);
     }
+  }
+
+  a{
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 30px;
   }
 }
 .modal-open{
