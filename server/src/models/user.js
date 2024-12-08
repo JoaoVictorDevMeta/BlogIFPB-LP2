@@ -15,6 +15,22 @@ async function readOne(id) {
     },
     include: {
       Perfil: true,
+      Diplomas: true,
+    },
+  });
+}
+
+async function readPosts(id) {
+  return await prisma.user.findUnique({
+    where: {
+      id: parseInt(id),
+    },
+    include: {
+      Blog: {
+        include: {
+          category: true,
+        },
+      },
     },
   });
 }
@@ -118,4 +134,5 @@ export default {
   deleteUser,
   updateUser,
   readByEmail,
+  readPosts,
 };

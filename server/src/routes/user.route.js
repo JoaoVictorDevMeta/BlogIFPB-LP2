@@ -27,12 +27,13 @@ router.get("/:id", validate(getUserSchema), async (req, res) => {
         const id = req.params.id;
 
         const user = await User.readOne(id);
+        const posts = await User.readPosts(id);
 
         if (!user) {
             return res.status(404).json({ error: "Usuário não encontrado" });
         }
 
-        res.json(user);
+        res.json({user, posts: posts.Blog});
     } catch (err) {
         res.status(500).json(err);
     }

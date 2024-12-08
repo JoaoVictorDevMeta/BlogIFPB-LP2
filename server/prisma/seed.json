@@ -1,145 +1,145 @@
 {
-  "users": [
-    {
-      "name": "joao victor",
-      "email": "joaovictor@gmail.com",
-      "description": "Sou engenheiro de software, apaixonado por tecnologia e inovação.",
-      "course": "Informática",
-      "password": "123456"
-    },
-    {
-      "name": "Raphael",
-      "email": "raphael@gmail.com",
-      "description": "Sou um médico apaixonado por saúde e bem-estar. Meu objetivo é ajudar as pessoas a viverem mais e melhor.",
-      "course": "Instrumento Musical",
-      "password": "654321"
-    },
-    {
-      "name": "Vitor Igor",
-      "email": "vitor@gmail.com",
-      "description": "Sou um entusiasta de estilo de vida saudável e estou sempre em busca de novas maneiras de melhorar a qualidade de vida.",
-      "password": "password123",
-      "diplomas": [
+    "users": [
         {
-          "name": "Nutrição",
-          "institution": "Universidade Federal da Paraíba",
-          "link": "#",
-          "year": 2018
+            "name": "joao victor",
+            "email": "joaovictor@gmail.com",
+            "description": "Sou engenheiro de software, apaixonado por tecnologia e inovação.",
+            "course": "Informática",
+            "password": "123456"
         },
         {
-          "name": "Educação Física",
-          "institution": "Universidade Federal da Paraíba",
-          "link": "#",
-          "year": 2016
-        }
-      ]
-    }
-  ],
-  "categories": [
-    {
-      "name": "Notícia"
-    },
-    {
-      "name": "Pesquisa"
-    },
-    {
-      "name": "Portaria"
-    },
-    {
-      "name": "Edital"
-    },
-    {
-      "name": "Evento"
-    },
-    {
-      "name": "Projeto"
-    },
-    {
-      "name": "Outros"
-    }
-  ],
-  "blogs": [
-    {
-      "author_id": 1,
-      "image_url": "https://s1.1zoom.me/big3/185/371623-svetik.jpg",
-      "title": "Primeiro Blog",
-      "subTitle": "Introduction to Technology",
-      "content": "This is the content of the first blog post. can be more but i will stop here.",
-      "category": "Notícia",
-      "references": [
-        {
-          "title": "TechCrunch",
-          "link": "https://techcrunch.com"
+            "name": "Raphael",
+            "email": "raphael@gmail.com",
+            "description": "Sou um médico apaixonado por saúde e bem-estar. Meu objetivo é ajudar as pessoas a viverem mais e melhor.",
+            "course": "Instrumento Musical",
+            "password": "654321"
         },
         {
-          "title": "The Verge",
-          "link": "https://theverge.com"
+            "name": "Vitor Igor",
+            "email": "vitor@gmail.com",
+            "description": "Sou um entusiasta de estilo de vida saudável e estou sempre em busca de novas maneiras de melhorar a qualidade de vida.",
+            "password": "password123",
+            "diplomas": [
+                {
+                    "name": "Nutrição",
+                    "institution": "Universidade Federal da Paraíba",
+                    "link": "#",
+                    "year": 2018
+                },
+                {
+                    "name": "Educação Física",
+                    "institution": "Universidade Federal da Paraíba",
+                    "link": "#",
+                    "year": 2016
+                }
+            ]
         }
-      ]
-    },
-    {
-      "author_id": 2,
-      "image_url": "https://files.tecnoblog.net/wp-content/uploads/2021/08/windows-365-testes-suspensao-768x410.png",
-      "title": "Health Tips",
-      "subTitle": "How to stay healthy",
-      "content": "A suspensão ocorreu pouco depois que a Microsoft liberou o Windows 365 ao público. Na segunda-feira (2), a companhia disponibilizou a contratação do serviço no Brasil e em outros países. Três planos são encontrados no catálogo: Basic, Standard e Premium. Em comum, as três modalidades oferecem compatibilidade com as versões desktop do Office, Outlook e OneDrive. Mas a versão Basic, por exemplo, tem suporte ao Microsoft Teams somente para chats e chamadas de voz. Para ter acesso à experiência completa, é preciso recorrer ao Standard, que é o plano intermediário do serviço.",
-      "category": "Notícia",
-      "references": [
+    ],
+    "categories": [
         {
-          "title": "TechCrunch",
-          "link": "https://techcrunch.com"
-        }
-      ]
-    },
-    {
-      "author_id": 3,
-      "image_url": "https://files.tecnoblog.net/wp-content/uploads/2021/07/windows-365-e1626278548676.jpg",
-      "title": "Lifestyle Choices",
-      "subTitle": "Making the right choices",
-      "content": "This is the content of the lifestyle choices blog post.",
-      "category": "Notícia",
-      "references": [
+            "name": "Notícia"
+        },
         {
-          "title": "TechCrunch",
-          "link": "https://techcrunch.com"
+            "name": "Pesquisa"
+        },
+        {
+            "name": "Portaria"
+        },
+        {
+            "name": "Edital"
+        },
+        {
+            "name": "Evento"
+        },
+        {
+            "name": "Projeto"
+        },
+        {
+            "name": "Outros"
         }
-      ]
-    },
-    {
-      "author_id": 3,
-      "image_url": "https://th.bing.com/th/id/R.4d144616c2d902551953fb48fab43197?rik=Oaw8%2bqGoVrth3w&pid=ImgRaw&r=0",
-      "title": "Lifestyle Choices",
-      "subTitle": "Making the right choices",
-      "content": "This is the content of the lifestyle choices blog post.",
-      "category": "Projeto",
-      "references": []
-    },
-    {
-      "author_id": 3,
-      "image_url": "https://th.bing.com/th/id/R.4d144616c2d902551953fb48fab43197?rik=Oaw8%2bqGoVrth3w&pid=ImgRaw&r=0",
-      "title": "Lifestyle Choices",
-      "subTitle": "Making the right choices",
-      "content": "This is the content of the lifestyle choices blog post.",
-      "category": "Projeto",
-      "references": []
-    },
-    {
-      "author_id": 3,
-      "image_url": "https://th.bing.com/th/id/R.4d144616c2d902551953fb48fab43197?rik=Oaw8%2bqGoVrth3w&pid=ImgRaw&r=0",
-      "title": "Lifestyle Choices",
-      "subTitle": "Making the right choices",
-      "content": "This is the content of the lifestyle choices blog post.",
-      "category": "Projeto",
-      "references": []
-    },
-    {
-      "author_id": 3,
-      "image_url": "https://th.bing.com/th/id/R.4d144616c2d902551953fb48fab43197?rik=Oaw8%2bqGoVrth3w&pid=ImgRaw&r=0",
-      "title": "Lifestyle Choices",
-      "subTitle": "Making the right choices",
-      "content": "This is the content of the lifestyle choices blog post.",
-      "category": "Projeto",
-      "references": []
-    }
-  ]
+    ],
+    "blogs": [
+        {
+            "author_id": 1,
+            "image_url": "https://s1.1zoom.me/big3/185/371623-svetik.jpg",
+            "title": "Primeiro Blog",
+            "subTitle": "Introduction to Technology",
+            "content": "This is the content of the first blog post. can be more but i will stop here.",
+            "category": "Notícia",
+            "references": [
+                {
+                    "title": "TechCrunch",
+                    "link": "https://techcrunch.com"
+                },
+                {
+                    "title": "The Verge",
+                    "link": "https://theverge.com"
+                }
+            ]
+        },
+        {
+            "author_id": 2,
+            "image_url": "https://files.tecnoblog.net/wp-content/uploads/2021/08/windows-365-testes-suspensao-768x410.png",
+            "title": "Health Tips",
+            "subTitle": "How to stay healthy",
+            "content": "A suspensão ocorreu pouco depois que a Microsoft liberou o Windows 365 ao público. Na segunda-feira (2), a companhia disponibilizou a contratação do serviço no Brasil e em outros países. Três planos são encontrados no catálogo: Basic, Standard e Premium. Em comum, as três modalidades oferecem compatibilidade com as versões desktop do Office, Outlook e OneDrive. Mas a versão Basic, por exemplo, tem suporte ao Microsoft Teams somente para chats e chamadas de voz. Para ter acesso à experiência completa, é preciso recorrer ao Standard, que é o plano intermediário do serviço.",
+            "category": "Notícia",
+            "references": [
+                {
+                    "title": "TechCrunch",
+                    "link": "https://techcrunch.com"
+                }
+            ]
+        },
+        {
+            "author_id": 3,
+            "image_url": "https://files.tecnoblog.net/wp-content/uploads/2021/07/windows-365-e1626278548676.jpg",
+            "title": "Lifestyle Choices",
+            "subTitle": "Making the right choices",
+            "content": "This is the content of the lifestyle choices blog post.",
+            "category": "Notícia",
+            "references": [
+                {
+                    "title": "TechCrunch",
+                    "link": "https://techcrunch.com"
+                }
+            ]
+        },
+        {
+            "author_id": 3,
+            "image_url": "https://science.nasa.gov/wp-content/uploads/2023/04/potw2022a-jpg.webp?w=1536&format=webp",
+            "title": "Hubble Catches Cosmic Snowflakes",
+            "subTitle": "There are about 150 known globular clusters in the Milky Way. Globular clusters contain some of the first stars to be produced in a galaxy, but the details of their origins and evolution still elude astronomers.",
+            "content": "<h1><strong>Hubble Catches Cosmic Snowflakes</strong></h1><p><em style='color: rgb(27, 27, 27);'>1 min read</em></p><p><br></p><p>Almost like snowflakes, the stars of the globular cluster NGC 6441 sparkle peacefully in the night sky, about 13,000 light-years from the Milky Way’s galactic center. Like snowflakes, the exact number of stars in such a cluster is difficult to discern. It is estimated that together the stars have 1.6 million times the mass of the Sun, making NGC 6441 one of the most massive and luminous globular clusters in the Milky Way.</p><p>NGC 6441 is host to four pulsars that each complete a single rotation in a few milliseconds. Also hidden within this cluster is JaFu 2, a planetary nebula. Despite their name, planetary nebulas have little to do with planets. A phase in the evolution of intermediate-mass stars, planetary nebulas last for only a few tens of thousands of years, the blink of an eye on astronomical timescales.</p><p>There are about 150 known globular clusters in the Milky Way. Globular clusters contain some of the first stars to be produced in a galaxy, but the details of their origins and evolution still elude astronomers.</p><p><strong><em>Text credit: ESA (European Space Agency)</em></strong></p>",
+            "category": "Projeto",
+            "references": []
+        },
+        {
+            "author_id": 3,
+            "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/missions/hubble/galaxies/quasars/Hubble_Quasar3C273_Annotated_STScI-01JD58JFAEZHH4HBQ1SB5N9XWT.png?w=1536&format=webp&fit=clip&crop=faces%2Cfocalpoint",
+            "title": "NASA’s Hubble Takes the Closest-Ever Look at a Quasar",
+            "subTitle": "Astronomers have used the unique capabilities of NASA's Hubble Space Telescope to peer closer than ever into the throat of an energetic monster black hole powering a quasar. ",
+            "content": "<p>Astronomers have used the unique capabilities of NASA's&nbsp;<a href='ttps://science.nasa.gov/mission/hubble/' rel='noopener noreferrer' target='_blank' style='color: rgb(23, 23, 27); background-color: rgba(0, 0, 0, 0);'>Hubble Space Telescope</a>&nbsp;to peer closer than ever into the throat of an energetic monster black hole powering a quasar. A quasar is a galactic center that glows brightly as the black hole consumes material in its immediate surroundings.</p><p>The new Hubble views of the environment around the quasar show a lot of 'weird things,' according to Bin Ren of the Côte d'Azur Observatory and Université Côte d'Azur in Nice, France. 'We've got a few blobs of different sizes, and a mysterious L-shaped filamentary structure. This is all within 16,000 light-years of the black hole.'</p><p>Some of the objects could be small satellite galaxies falling into the black hole, and so they could offer the materials that will accrete onto the central supermassive black hole, powering the bright lighthouse. 'Thanks to Hubble's observing power, we're opening a new gateway into understanding quasars,' said Ren. 'My colleagues are excited because they've never seen this much detail before.'</p><p>Quasars look starlike as point sources of light in the sky (hence the name quasi-stellar object). The quasar in the new study, 3C 273, was identified in 1963 by astronomer Maarten Schmidt as the first quasar. At a distance of 2.5 billion light-years it was too far away for a star. It must have been more energetic than ever imagined, with a luminosity over 10 times brighter than the brightest giant elliptical galaxies. This opened the door to an unexpected new puzzle in cosmology: What is powering this massive energy production? The likely culprit was material accreting onto a black hole.</p><p><img src='https://assets.science.nasa.gov/dynamicimage/assets/science/missions/hubble/galaxies/quasars/Hubble_Quasar3C273_Annotated_STScI-01JD58JFAEZHH4HBQ1SB5N9XWT.png?w=4096&amp;format=png&amp;fit=clip&amp;crop=faces%2Cfocalpoint' alt='A two-panel annotated image of quasar 3C 273, taken by different Hubble science instruments. The top panel is a Hubble Wide Field Planetary Camera 2 (WFPC2) image of quasar 3C 273. It looks like a bright white car headlight. There is a linear orange-white smoke-like feature stretching to the 4 o’clock position, an extragalactic jet launched from the quasar in the center of the black hole of an unseen galaxy. The bottom panel is a Hubble Space Telescope Imaging Spectrograph (STIS) coronagraph image of quasar 3C 273. It looks the same as the WFPC2 image, but in shades of blue. A black circle (labeled “core light blocked”) blocks the glare of the quasar. Blue-colored filamentary material is visible near the black hole. The extragalactic jet is still visible.' height='1400' width='1084'></p><p>A Hubble Space Telescope image of the core of quasar 3C 273. A coronagraph on Hubble blocks out the glare coming from the supermassive black hole at the heart of the quasar. This allows astronomers to see unprecedented details near the black hole such as weird filaments, lobes, and a mysterious L-shaped structure, probably caused by small galaxies being devoured by the black hole. Located 2.5 billion light-years away, 3C 273 is the first quasar (quasi-stellar object) ever discovered, in 1963.</p><p>NASA, ESA, Bin Ren (Université Côte d’Azur/CNRS); Acknowledgment: John Bahcall (IAS); Image Processing: Joseph DePasquale (STScI)</p><p>In 1994 Hubble’s new sharp view revealed that the environment surrounding quasars is far more complex than first suspected. The images suggested galactic collisions and mergers between quasars and companion galaxies, where debris cascades down onto supermassive black holes. This reignites the giant black holes that drive quasars.</p><p>For Hubble, staring into the quasar 3C 273 is like looking directly into a blinding car headlight and trying to see an ant crawling on the rim around it. The quasar pours out thousands of times the entire energy of stars in a galaxy. One of closest quasars to Earth, 3C 273 is 2.5 billion light-years away. (If it was very nearby, a few tens of light-years from Earth, it would appear as bright as the Sun in the sky!) Hubble's&nbsp;<a href='https://science.nasa.gov/mission/hubble/observatory/design/space-telescope-imaging-spectrograph/' rel='noopener noreferrer' target='_blank' style='color: rgb(23, 23, 27); background-color: rgba(0, 0, 0, 0);'>Space Telescope Imaging Spectrograph</a>&nbsp;(STIS) can serve as a coronagraph to block light from central sources, not unlike how the Moon blocks the Sun's glare during a total solar eclipse. Astronomers have used STIS to unveil dusty disks around stars to understand the formation of planetary systems, and now they can use STIS to better understand quasars’ host galaxies. The Hubble coronograph allowed astronomers to look eight times closer to the black hole than ever before.</p><p>Scientists got rare insight into the quasar’s 300,000-light-year-long extragalactic jet of material blazing across space at nearly the speed of light. By comparing the STIS coronagraphic data with archival STIS images with a 22-year separation, the team led by Ren concluded that the jet is moving faster when it is farther away from the monster black hole.</p><p>'With the fine spatial structures and jet motion, Hubble bridged a gap between the small-scale radio interferometry and large-scale optical imaging observations, and thus we can take an observational step towards a more complete understanding of quasar host morphology. Our previous view was very limited, but Hubble is allowing us to understand the complicated quasar morphology and galactic interactions in detail. In the future, looking further at 3C 273 in infrared light with the James Webb Space Telescope might give us more clues,' said Ren.</p><p>At least 1 million quasars are scattered across the sky. They are useful background 'spotlights' for a variety of astronomical observations. Quasars were most abundant about 3 billion years after the big bang, when galaxy collisions were more common.</p><p>The Hubble Space Telescope has been operating for over three decades and continues to make ground-breaking discoveries that shape our fundamental understanding of the universe. Hubble is a project of international cooperation between NASA and ESA (European Space Agency). NASA's Goddard Space Flight Center in Greenbelt, Maryland, manages the telescope and mission operations. Lockheed Martin Space, based in Denver, also supports mission operations at Goddard. The Space Telescope Science Institute (STScI) in Baltimore, which is operated by the Association of Universities for Research in Astronomy, conducts Hubble science operations for NASA.</p>",
+            "category": "Projeto",
+            "references": []
+        },
+        {
+            "author_id": 3,
+            "image_url": "https://th.bing.com/th/id/R.4d144616c2d902551953fb48fab43197?rik=Oaw8%2bqGoVrth3w&pid=ImgRaw&r=0",
+            "title": "Lifestyle Choices",
+            "subTitle": "Making the right choices",
+            "content": "This is the content of the lifestyle choices blog post.",
+            "category": "Projeto",
+            "references": []
+        },
+        {
+            "author_id": 3,
+            "image_url": "https://th.bing.com/th/id/R.4d144616c2d902551953fb48fab43197?rik=Oaw8%2bqGoVrth3w&pid=ImgRaw&r=0",
+            "title": "Lifestyle Choices",
+            "subTitle": "Making the right choices",
+            "content": "This is the content of the lifestyle choices blog post.",
+            "category": "Projeto",
+            "references": []
+        }
+    ]
 }

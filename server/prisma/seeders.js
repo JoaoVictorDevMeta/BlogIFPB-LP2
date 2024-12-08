@@ -43,6 +43,7 @@ async function main() {
     await prisma.perfil.create({
       data: {
         ...perfil,
+        bannerUrl: "https://th.bing.com/th/id/R.f3adb71b5c1d471ea94aebdba770245e?rik=EuDRrlBDE%2fMhkw&pid=ImgRaw&r=0",
         user: {
           connect: {
             id: userData.id,

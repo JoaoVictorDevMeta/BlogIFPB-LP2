@@ -15,6 +15,11 @@ async function readById(id) {
     },
     include: {
       category: true,
+      author: {
+        include: {
+          Perfil: true,
+        },
+      }
     },
   });
 }
