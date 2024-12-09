@@ -48,7 +48,7 @@ const NewPost = () => {
       content: content,
       category: data.category,
     };
-    
+
     addBlog(sendData);
   };
 
@@ -70,6 +70,7 @@ const NewPost = () => {
           <div className="title-input">
             <label htmlFor="">Título do Blog</label>
             <input
+              placeholder="Título do seu blog"
               type="text"
               {...register("title", {
                 required: "Título do blog obrigatório",
@@ -81,6 +82,7 @@ const NewPost = () => {
           <div className="desc-input">
             <label htmlFor="">Descrição do Blog</label>
             <textarea
+              placeholder="Descrição do seu blog"
               type="text"
               {...register("description", {
                 required: "Descrição do blog obrigatória",
@@ -94,6 +96,7 @@ const NewPost = () => {
             <img src={img} alt="" />
             <input
               type="text"
+              placeholder="URL da imagem do blog"
               id="image_url"
               {...register("image_url", {
                 onBlur: (e) => {
@@ -105,7 +108,11 @@ const NewPost = () => {
           </div>
           <h2>Conteúdo do Blog</h2>
           <div>
-            <ReactQuill theme="snow" value={content} onChange={handleContentChange} />
+            <ReactQuill
+              theme="snow"
+              value={content}
+              onChange={handleContentChange}
+            />
           </div>
         </section>
         <aside className="my-5">

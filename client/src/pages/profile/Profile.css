@@ -1,22 +1,59 @@
-.imageac img {
-    width: 213px;
-    height: 213px;
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 0 !important;
+}
+.profile-container .background-image {
+  width: 100%;
+  height: 320px;
+}
+
+.background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /*filter: brightness(0.5);*/
+}
+
+.user-container {
+  display: flex;
+}
+.user-container .user-card{
+    flex: 1;
+    max-width: 300px;
+    position: relative;
+    bottom: 120px;
+    margin: 20px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+    height: fit-content;
+}
+.user-card .user-image {
+    width: 100%;
+}
+.user-card .user-info{
+    padding: 20px;
+}
+.user-card .user-info h3{
+    font-weight: 700;
+}
+.user-card .user-image img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 50%;
 }
-.account{align-items: center;}
-.account > .text{ width: 230px;}
-.social-media{list-style: none;}
-@media (max-width: 768px){
-    .account { justify-content: center;}
+.user-container .user-posts{
+    flex: 2;
+    margin: 20px;
 }
-.background {
-    background-color: rgb(184, 192, 111);
-    text-align: justify;
-    font-size: medium;
-    padding: 30px 80px;
+.user-desc{
+    background: var(--bs-primary-text-emphasis) !important;
+    color: white;
+    padding: 30px;
 }
-.postages{
-    margin-top: 50px;
-    text-decoration: black;
+.user-desc span{
+    font-size: 18px;
+}
+.posts-container{
+    padding: 30px;
 }

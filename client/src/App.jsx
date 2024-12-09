@@ -25,11 +25,11 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path='/students' element={<Students/>}/>
           <Route path="/blog/:id" element={<Blog/>}/>
-          <Route path="/newpost" element={<NewPost/>}/>
-          <Route path="/editblog/:blogId" element={<EditPost/>}/>
           <Route path="/search" element={<Search/>}/>
-          <Route path="/profile" element={<PrivateRoute/>}>
-            <Route path=":id" element={<Profile/>}/>
+          <Route path="/profile/:id" element={<Profile/>}/>
+          <Route path="/" element={<PrivateRoute/>}>
+            <Route path="/editblog/:blogId" element={<EditPost/>}/>
+            <Route path="/newpost" element={<NewPost/>}/>
           </Route>
         </Routes>
       </main>
