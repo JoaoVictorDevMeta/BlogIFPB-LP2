@@ -172,3 +172,7 @@ body {
     font-size: 40px;
     margin-left: 2.5%;
 }
+.texto img{
+    width: 100%;
+    height: fit-content;
+}

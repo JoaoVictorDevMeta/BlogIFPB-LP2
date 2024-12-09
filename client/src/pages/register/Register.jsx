@@ -109,7 +109,7 @@ const Register = () => {
                     "No special characters allowed",
                 },
               })}
-              errors={errors.nome}
+              errors={errors.name}
             />
 
             <div className="w-100 text-start">

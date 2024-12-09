@@ -8,7 +8,7 @@ const getUserSchema = z.object({
             .refine((val) => !isNaN(val), {
                 message: "Invalid number",
             }),
-    }),
+    }), 
 });
 
 const updateUserSchema = z.object({
