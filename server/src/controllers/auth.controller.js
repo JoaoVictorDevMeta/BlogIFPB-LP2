@@ -1,57 +1,127 @@
 import bcrypt from "bcrypt";
+import crypto from "node:crypto";
 import jwt from "jsonwebtoken";
 import User from "../models/user.js";
+import Token from "../models/token.js";
+
+import { sendMail } from "../utils/sendMail.js";
 
 const saltRounds = Number(process.env.BCRYPT_SALT); //assumindo valor do Salt
 
 export async function register(req, res) {
-  const { name, email, password, course } = req.body; //definindo variaveis que recebemos
-  console.log(req.body);
+    const { name, email, password, course } = req.body; //definindo variaveis que recebemos
+    console.log(req.body);
 
-  try {
-    const hashedPasswd = await bcrypt.hash(password, saltRounds); //senha criptografada
-    const newUser = await User.create({
-      name,
-      email,
-      password: hashedPasswd,
-      course,
-    }); // adicionando o usuario
+    try {
+        const hashedPasswd = await bcrypt.hash(password, saltRounds); //senha criptografada
+        const newUser = await User.create({
+            name,
+            email,
+            password: hashedPasswd,
+            course,
+        }); // adicionando o usuario
 
-    res.status(201).json(newUser);
-  } catch (err) {
-    if (err.code === "P2002") {
-      return res.status(400).json("Esse usuário já existe");
+        res.status(201).json(newUser);
+    } catch (err) {
+        if (err.code === "P2002") {
+            return res.status(400).json("Esse usuário já existe");
+        }
+        console.log(err);
+        res.status(500).send(err);
     }
-    console.log(err);
-    res.status(500).send(err);
-  }
 }
 
 export async function login(req, res) {
-  const email = req.body.email;
-  const password = req.body.password;
+    const email = req.body.email;
+    const password = req.body.password;
 
-  try {
-    const user = await User.readByEmail(email);
-    //console.log(user, password)
-    if(!user) {
-      return res.status(401).json("Usuário ou senha inválidos");
+    try {
+        const user = await User.readByEmail(email);
+        //console.log(user, password)
+        if (!user) {
+            return res.status(401).json("Usuário ou senha inválidos");
+        }
+
+        if (await bcrypt.compare(password, user.password)) {
+            //lembrar de criar .env
+            const token = jwt.sign(
+                { userId: user.id },
+                process.env.JWT_SECRET,
+                {
+                    expiresIn: "1h",
+                }
+            ); //token de acesso
+
+            //separando senha das informações de usuário
+            const { password: pass, ...validUser } = user;
+
+            return res.json({ User: validUser, token });
+        }
+        return res.status(401).json("Usuário ou senha inválidos");
+    } catch (err) {
+        console.log(err);
+        res.status(500).send(err);
     }
+}
 
-    if (await bcrypt.compare(password, user.password)) {
-      //lembrar de criar .env
-      const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
-        expiresIn: "1h",
-      }); //token de acesso
+export async function forgotPassword(req, res, next) {
+    const email = req.body.email;
 
-      //separando senha das informações de usuário
-      const { password: pass, ...validUser } = user;
+    try {
+        //verificar se exste esse usuário que pediu a senha
+        const user = await User.readByEmail(email);
+        if (!user) {
+            return res.status(404).json("Nenhum usuário encontrado");
+        }
 
-      return res.json({ User: validUser, token });
+        //verificar se ja existe um token de recuperação de senha
+        const DbToken = await Token.readByUserId(user.id);
+        console.log(DbToken);
+        if (DbToken) {
+            // -- JV --
+            const now = new Date();
+            //caso não, verificar se foi adicionado a menos de 3 minutos
+            //o usuário deve esperar no minimo este tempo para pedir outro token
+            //boas praticas
+            if (DbToken.createdAt.getTime() + 180000 > now.getTime()) {
+                return res
+                    .status(400)
+                    .json("Aguarde 3 minutos para pedir outro token");
+            }
+            //caso tenha passado o tempo, deletar o token antigo
+            await Token.deleteOne(DbToken.id);
+        }
+
+        //cria token
+        const token = crypto.randomBytes(32).toString("hex");
+        const url = `${process.env.CLIENT_URL}/reset-password/${token}`;
+
+        //salva o token
+        await Token.create(user.id, token);
+
+        //envio de email
+        await sendMail(user.email, "Recuperação de senha", url);
+
+        res.status(200).json("Email enviado");
+    } catch (err) {
+        console.log(err);
+        res.status(500).send(err);
     }
-    return res.status(401).json("Usuário ou senha inválidos");
-  } catch (err) {
-    console.log(err);
-    res.status(500).send(err);
-  }
+}
+
+export async function resetPasswordByToken(req, res){
+    const data = req.body;
+    try{
+        if(req.token.userId !== data.userId){
+            return res.status(401).json("Token inválido");
+        }
+
+        await User.updatePassword(data.password,data.userId);
+        await Token.deleteByUserId(data.userId);
+        
+        res.status(200).json("Senha alterada com sucesso");
+    }catch(err){
+        console.log(err);
+        res.status(500).send(err);
+    }
 }

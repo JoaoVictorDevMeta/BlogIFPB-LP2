@@ -9,8 +9,8 @@ Content-Type: application/json
 
 {
     "name": "João Victor",
-    "email": "joaovictorgouveiar@gmail.com",
-    "password": "123456",
+    "email": "joao.gouveia@academico.ifpb.edu.br",
+    "password": "123456!",
     "course": "Informática"
 }
 
@@ -20,8 +20,30 @@ POST {{domain}}/auth/login
 Content-Type: application/json
 
 {
-    "email": "joaovictorgouveiar@gmail.com",
-    "password": "123456"
+    "email": "joao.gouveia@academico.ifpb.edu.br",
+    "password": "123456!"
+}
+
+### forgot
+POST {{domain}}/auth/password-forgot
+Content-Type: application/json
+
+{
+    "email": "joao.gouveia@academico.ifpb.edu.br"
+}
+
+### forgot password auth verif
+### need to checkout the email to correct link
+GET {{domain}}/auth/validate-pass-token/254c9d00f4b2784084fa3c4c1569b59f9130675c9cee2b322eb0dfaa27c99d87
+
+### reset password using recover token
+POST {{domain}}/auth/password-reset
+Content-Type: application/json
+
+{
+    "password": "123456",
+    "userId": 4,
+    "token": "254c9d00f4b2784084fa3c4c1569b59f9130675c9cee2b322eb0dfaa27c99d87"
 }
 
 ### ----------------------------------------------

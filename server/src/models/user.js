@@ -126,6 +126,17 @@ async function deleteUser(id) {
   });
 }
 
+async function updatePassword(newPassword, id) {
+  return await prisma.user.update({
+    where: {
+      id: parseInt(id),
+    },
+    data: {
+      password: newPassword,
+    },
+  });
+}
+
 export default {
   create,
   readAll,
@@ -135,4 +146,5 @@ export default {
   updateUser,
   readByEmail,
   readPosts,
+  updatePassword,
 };

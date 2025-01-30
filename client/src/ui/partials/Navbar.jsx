@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../data/context/logout";
 
@@ -65,9 +65,9 @@ const Navbar = () => {
       {user ? (
         <div className={`user-modal ${showModal ? 'modal-open' : ''}`}>
           <div className="user-info">
-            <Link to={`/profile/${user.id}`}>{user.Perfil?.name}</Link>
-            <h5>{user.Perfil.course}</h5>
-            <p>{user.email}</p>
+            <Link to={`/profile/${user?.id}`}>{user.Perfil?.name}</Link>
+            <h5>{user?.Perfil?.course}</h5>
+            <p>{user?.email}</p>
           </div>
           <Link to="/newpost">| Postar um blog</Link>
           <button className="btn button-outline" onClick={() => {logout(navigate)}}>
