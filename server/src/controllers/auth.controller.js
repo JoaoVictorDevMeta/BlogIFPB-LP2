@@ -86,7 +86,7 @@ export async function forgotPassword(req, res, next) {
             if (DbToken.createdAt.getTime() + 180000 > now.getTime()) {
                 return res
                     .status(400)
-                    .json("Aguarde 3 minutos para pedir outro token");
+                    .json("Aguarde 3 minutos para enviar email novamente.");
             }
             //caso tenha passado o tempo, deletar o token antigo
             await Token.deleteOne(DbToken.id);
@@ -94,7 +94,7 @@ export async function forgotPassword(req, res, next) {
 
         //cria token
         const token = crypto.randomBytes(32).toString("hex");
-        const url = `${process.env.CLIENT_URL}/reset-password/${token}`;
+        const url = `${process.env.CLIENT_URL}/redefine-password?tt=${token}&usr=${user.id}`;
 
         //salva o token
         await Token.create(user.id, token);
@@ -112,14 +112,16 @@ export async function forgotPassword(req, res, next) {
 export async function resetPasswordByToken(req, res){
     const data = req.body;
     try{
-        if(req.token.userId !== data.userId){
-            return res.status(401).json("Token inválido");
+        if(req.token.userId !== parseInt(data.userId)){
+            return res.status(401).json({"auth":false, "message":"Token inválido"});
         }
 
-        await User.updatePassword(data.password,data.userId);
-        await Token.deleteByUserId(data.userId);
+        const hashedPasswd = await bcrypt.hash(data.password, saltRounds);
+
+        await User.updatePassword(hashedPasswd, parseInt(data.userId));
+        await Token.deleteByUserId(parseInt(data.userId));
         
-        res.status(200).json("Senha alterada com sucesso");
+        res.status(200).json({"auth": true, "message": "Senha alterada com sucesso"});
     }catch(err){
         console.log(err);
         res.status(500).send(err);

@@ -15,6 +15,7 @@ const InputField = ({ label, type, id, placeholder, className, registerOptions, 
         {errors?.type === "noSpecialChars" && <span>Apenas Letras e Números</span>}
         {errors?.type === "hasNumber" && <span>Inclua um número em sua Senha</span>}
         {errors?.type === "hasSpecialChar" && <span>Inclua um caractére especial</span>}
+        {errors?.type === "validate" && <span>{errors?.message}</span>}
       </small>
     </div>
   );

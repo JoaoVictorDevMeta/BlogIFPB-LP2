@@ -34,7 +34,7 @@ Content-Type: application/json
 
 ### forgot password auth verif
 ### need to checkout the email to correct link
-GET {{domain}}/auth/validate-pass-token/254c9d00f4b2784084fa3c4c1569b59f9130675c9cee2b322eb0dfaa27c99d87
+GET {{domain}}/auth/validate-pass-token/03e6002a2e5f66406ed0d646f03775ce383e89e1f27faf2bfd5996bed1744f22
 
 ### reset password using recover token
 POST {{domain}}/auth/password-reset

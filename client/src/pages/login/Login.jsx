@@ -1,4 +1,3 @@
-import React from "react";
 import "./LoginPage.css";
 import { useForm } from "react-hook-form";
 import InputField from "../../ui/components/Input";
@@ -62,6 +61,8 @@ const Login = () => {
           <button className="btn button-outline mx-5 fs-4 mb-3">
             {loading ? "..." : "Logar"}
           </button>
+
+          <a href="/forgot-password">Esqueceu a senha</a>
         </form>
       </div>
     </section>
