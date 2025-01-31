@@ -5,6 +5,7 @@ import User from "../models/user.js";
 import { isAuthenticated } from "../middleware/tokenValidation.js";
 import { validate } from "../middleware/validate.js";
 import { getUserSchema, updateUserSchema } from "../validators/userSchema.js";
+import { uploadImage } from "../utils/uploadImageCloud.js";
 
 const router = express.Router();
 const saltRounds = Number(process.env.BCRYPT_SALT);
@@ -81,6 +82,17 @@ router.put(
         }
     }
 );
+
+router.put("/edit/image", isAuthenticated, uploadImage, (req, res) => {
+    try{
+        const newInfo = User.updateUserImage(req.imageUrl, req.userId)
+
+        res.status(200).json(newInfo)
+    }catch(err){
+        console.log(err)
+        res.status(500).json(err);
+    }
+})
 
 //rota para apagar um usuário
 router.delete("/delete", isAuthenticated, async (req, res) => {

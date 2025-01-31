@@ -77,6 +77,11 @@ const Profile = () => {
           <div className="posts-container">
             <h2 className="mb-4">Blogs</h2>
             <div className="posts-list">
+              {!blogs.length && (
+                <h4>
+                  Nenhum blog postado...
+                </h4>
+              )}
               {blogs?.map((blog) => (
                 <BlogResult
                   key={blog.id}

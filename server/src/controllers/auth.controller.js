@@ -21,6 +21,16 @@ export async function register(req, res) {
             course,
         }); // adicionando o usuario
 
+        sendMail(
+            email,
+            "Seja bem-vindo ao BlogIFPB!",
+            `
+            Seja bem-vindo a comunidade de estudantes e professores do IFPB!
+            Lembre-se de ler atentamente as regras, esperamos que tenha uma 
+            ótima experiencia em nosso site.
+        `
+        );
+
         res.status(201).json(newUser);
     } catch (err) {
         if (err.code === "P2002") {
@@ -109,20 +119,25 @@ export async function forgotPassword(req, res, next) {
     }
 }
 
-export async function resetPasswordByToken(req, res){
+export async function resetPasswordByToken(req, res) {
     const data = req.body;
-    try{
-        if(req.token.userId !== parseInt(data.userId)){
-            return res.status(401).json({"auth":false, "message":"Token inválido"});
+    try {
+        if (req.token.userId !== parseInt(data.userId)) {
+            return res
+                .status(401)
+                .json({ auth: false, message: "Token inválido" });
         }
 
         const hashedPasswd = await bcrypt.hash(data.password, saltRounds);
 
         await User.updatePassword(hashedPasswd, parseInt(data.userId));
         await Token.deleteByUserId(parseInt(data.userId));
-        
-        res.status(200).json({"auth": true, "message": "Senha alterada com sucesso"});
-    }catch(err){
+
+        res.status(200).json({
+            auth: true,
+            message: "Senha alterada com sucesso",
+        });
+    } catch (err) {
         console.log(err);
         res.status(500).send(err);
     }

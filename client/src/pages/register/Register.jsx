@@ -54,7 +54,7 @@ const Register = () => {
           icon: "success",
           confirmButtonText: "Vamos!",
         }).then(() => {
-          navigate("/");
+          navigate("/login");
         });
       })
       .finally(() => {

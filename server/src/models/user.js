@@ -118,6 +118,19 @@ async function updatePerfil(
   });
 }
 
+async function updateUserImage(imageUrl, userId){
+  return await prisma.user.update({
+    where:{
+      id: userId,
+    },
+    data:{
+      Perfil:{
+        imageUrl: imageUrl,
+      }
+    }
+  })
+}
+
 async function deleteUser(id) {
   return await prisma.user.delete({
     where: {
@@ -147,4 +160,5 @@ export default {
   readByEmail,
   readPosts,
   updatePassword,
+  updateUserImage
 };

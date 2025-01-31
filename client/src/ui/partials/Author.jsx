@@ -33,7 +33,7 @@ function Subtitle(props) {
             : `| atualizado há ${relativeUpdateTime} dias`}
         </p>
       </div>
-      { ( user.id === props.userId ) ? <div className="ms-4 d-flex date-show">
+      { ( user?.id === props.userId ) ? <div className="ms-4 d-flex date-show">
         <Link to={`/editblog/${props.blogId}`}>Editar...</Link>
       </div> : null }
     </>
