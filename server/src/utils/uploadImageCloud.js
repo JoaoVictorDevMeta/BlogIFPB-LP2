@@ -1,6 +1,7 @@
 import { upload, uploadMultiple } from '../middleware/multer.js';
 import cloudinary from '../config/cloudinary.js';
 import { promisify } from 'util';
+import multer from 'multer';
 
 // CODIGO DE JV 
 // Deixando assincrono
@@ -20,7 +21,7 @@ export const uploadImage = [
             req.imageUrl = result.url;
             next();
         } catch (err) {
-            console.error(err);
+            console.log(err);
             next(err);
         }
     }

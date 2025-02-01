@@ -83,11 +83,10 @@ router.put(
     }
 );
 
-router.put("/edit/image", isAuthenticated, uploadImage, (req, res) => {
+router.put("/edit/image", isAuthenticated, uploadImage, async (req, res) => {
     try{
-        const newInfo = User.updateUserImage(req.imageUrl, req.userId)
-
-        res.status(200).json(newInfo)
+        const newInfo = await User.updateUserImage(req.imageUrl, req.userId)
+        res.status(200).json({newInfo, imageUrl: req.imageUrl})
     }catch(err){
         console.log(err)
         res.status(500).json(err);

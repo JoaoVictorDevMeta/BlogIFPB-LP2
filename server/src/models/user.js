@@ -125,7 +125,9 @@ async function updateUserImage(imageUrl, userId){
     },
     data:{
       Perfil:{
-        imageUrl: imageUrl,
+        update:{
+          imageUrl,
+        }
       }
     }
   })

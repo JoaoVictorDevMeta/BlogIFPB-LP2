@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Profile.css";
 import { useParams } from "react-router-dom";
 import { FaInstagram } from "react-icons/fa";
@@ -50,8 +50,8 @@ const Profile = () => {
           <div className="user-image">
             <img
               src={
-                user.Perfil?.image_url
-                  ? user.Perfil.image_url
+                user.Perfil?.imageUrl
+                  ? user.Perfil.imageUrl
                   : "https://th.bing.com/th/id/R.d7068367c4367960647a732c708d3ca8?rik=kAnNBuF4K4Jo1Q&pid=ImgRaw&r=0"
               }
               alt=""

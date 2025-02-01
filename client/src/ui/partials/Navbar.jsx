@@ -70,6 +70,7 @@ const Navbar = () => {
             <p>{user?.email}</p>
           </div>
           <Link to="/newpost">| Postar um blog</Link>
+          <Link to="/edit-profile">| Editar pefil</Link>
           <button className="btn button-outline" onClick={() => {logout(navigate)}}>
             Logout
           </button>

@@ -57,6 +57,7 @@ const Blog = () => {
               description={blog?.author?.Perfil?.description}
               autor={blog?.author?.Perfil?.name}
               data={blog?.createdAt}
+              imageUrl={blog?.author?.Perfil?.imageUrl}
               atualizado={blog?.updatedAt}
               autorCourse={blog?.author?.Perfil?.course}
               autorId={blog?.author?.id}

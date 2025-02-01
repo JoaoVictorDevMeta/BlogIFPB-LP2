@@ -13,6 +13,7 @@ import NewPost from "./pages/newPost/NewPost";
 import EditPost from "./pages/editPost/EditPost";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 import RedefinePassword from "./pages/redefinePassword/redefinePassword";
+import EditImage from "./pages/editProfile/EditProfile";
 
 import PrivateRoute from './data/hooks/auth/PrivateRoute'
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/search" element={<Search/>}/>
           <Route path="/profile/:id" element={<Profile/>}/>
           <Route path="/" element={<PrivateRoute/>}>
+            <Route path="/edit-profile" element={<EditImage/>}/>
             <Route path="/editblog/:blogId" element={<EditPost/>}/>
             <Route path="/newpost" element={<NewPost/>}/>
           </Route>

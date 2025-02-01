@@ -16,7 +16,7 @@ function Subtitle(props) {
       <div className="conteudo-card ms-4">
         <img
           className="card-image"
-          src="https://static.vecteezy.com/system/resources/previews/024/983/914/original/simple-user-default-icon-free-png.png"
+          src={props.imageUrl || "https://static.vecteezy.com/system/resources/previews/024/983/914/original/simple-user-default-icon-free-png.png"}
           alt="foto de perfil"
         />
         <div className="author-info ms-3">
