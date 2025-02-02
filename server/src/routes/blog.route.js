@@ -4,6 +4,7 @@ import blog from "../models/blog.js";
 import { isAuthenticated } from "../middleware/tokenValidation.js";
 import { validate } from "../middleware/validate.js";
 import { createBlogSchema, deleteBlogSchema, updateBlogSchema } from "../validators/blogSchema.js";
+import { uploadImage } from "../utils/uploadImageCloud.js";
 
 const router = express.Router();
 const prisma = new PrismaClient();
@@ -78,9 +79,9 @@ router.get("/search/", async (req, res) => {
 });
 
 //criação de blog
-router.post("/create", isAuthenticated, validate(createBlogSchema), async (req, res) => {
+router.post("/create", isAuthenticated, uploadImage, async (req, res) => {
     try {
-        const { title, content, subTitle, category, image_url } = req.body;
+        const { title, content, subTitle, category } = req.body;
         const userId = req.userId;
 
         const categoryData = await prisma.category.findFirst({
@@ -97,7 +98,7 @@ router.post("/create", isAuthenticated, validate(createBlogSchema), async (req, 
             title,
             content,
             subTitle,
-            image_url,
+            image_url: req.imageUrl
         });
 
         res.status(201).json(newBlog);

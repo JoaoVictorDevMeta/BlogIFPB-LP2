@@ -12,16 +12,9 @@ const useAddBlog = () => {
         const options = {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify({
-                title: data.title,
-                subTitle: data.description,
-                content: data.content,
-                image_url: data.image_url,
-                category: data.category,
-            }),
+            body: data
         };
 
         try {

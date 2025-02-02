@@ -7,8 +7,8 @@ import applyRoutes from "./src/routes/exports/router.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(morgan("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(
   cors({
     origin: "*",

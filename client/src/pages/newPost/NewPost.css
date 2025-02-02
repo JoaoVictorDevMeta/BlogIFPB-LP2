@@ -92,3 +92,7 @@
     border-bottom: 1px solid #6e0606;
     margin-bottom: 10px;
 }
+
+.newpostImage{
+  object-fit: cover;
+}

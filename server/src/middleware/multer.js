@@ -8,7 +8,7 @@ import path from "path";
 
 export const uploadMultiple = multer({
     storage: multer.memoryStorage(),
-    limits: { fileSize: 1200000 },
+    limits: { fileSize: 5 * 1024 * 1024 },
     fileFilter: function (req, file, cb) {
         checkFileType(file, cb);
     }
@@ -16,7 +16,7 @@ export const uploadMultiple = multer({
 
 export const upload = multer({
     storage: multer.memoryStorage(),
-    limits: { fileSize: 1200000 },
+    limits: { fileSize: 5 * 1024 * 1024 },
     fileFilter: async function (req, file, cb) {
         checkFileType(file, cb);
     }

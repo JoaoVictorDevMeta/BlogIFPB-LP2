@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./NewPost.css";
 
 import ReactQuill from "react-quill";
@@ -15,7 +15,10 @@ const NewPost = () => {
     formState: { errors },
   } = useForm();
   const [content, setContent] = useState("");
-  const [img, setImg] = useState("");
+  const [image, setImage] = useState(
+    "https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
+);
+  const [imageFile, setImageFile] = useState(null);
   const [categories, setCategories] = useState([]);
   const { addBlog, loading } = useAddBlog();
 
@@ -41,15 +44,16 @@ const NewPost = () => {
       return;
     }
 
-    const sendData = {
-      title: data.title,
-      description: data.description,
-      image_url: data.image_url,
-      content: content,
-      category: data.category,
-    };
+    const formData = new FormData();
+    formData.append("title", data.title);
+    formData.append("subTitle", data.description);
+    formData.append("content", content);
+    formData.append("category", data.category);
+    if (imageFile) {
+      formData.append("image", imageFile);
+    }
 
-    addBlog(sendData);
+    addBlog(formData);
   };
 
   const handleContentChange = (value) => {
@@ -58,6 +62,18 @@ const NewPost = () => {
       clearErrors("content");
     }
   };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        setImageFile(file);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImage(reader.result);
+        };
+        reader.readAsDataURL(file);
+    }
+};
 
   const isEmptyObject = (obj) => {
     return Object.keys(obj).length === 0;
@@ -93,17 +109,11 @@ const NewPost = () => {
           </div>
           <div className="title-input image-input">
             <label htmlFor="">Imagem do blog</label>
-            <img src={img} alt="" />
-            <input
-              type="text"
-              placeholder="URL da imagem do blog"
-              id="image_url"
-              {...register("image_url", {
-                onBlur: (e) => {
-                  setImg(e.target.value);
-                },
-                required: "Imagem do blog obrigatória",
-              })}
+            <img src={image} alt="" className="newpostImage"/>
+            <input 
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange} 
             />
           </div>
           <h2>Conteúdo do Blog</h2>
