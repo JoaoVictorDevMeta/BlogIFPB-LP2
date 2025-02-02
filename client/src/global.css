@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 :root {
   color-scheme: light dark;
@@ -44,9 +45,7 @@ footer {
   width: 100%;
 }
 
-main {
-  max-width: 1800px;
-}
+
 
 input:focus-visible {
   outline: none;
@@ -56,6 +55,8 @@ nav {
   position: relative;
   background: #eee9da;
   z-index: 100;
+  background: white;
+  border-bottom: 40px solid var(--primary);
 }
 .logo {
   font-size: 36px;
@@ -111,7 +112,7 @@ small {
 .user-modal {
   position: absolute;
   max-width: 350px;
-  background: #eee9da;
+  background: white;
   width: 100%;
   min-height: 200px;
   right: 0;
@@ -146,4 +147,14 @@ small {
 }
 .modal-open{
   transform: none;
+}
+
+blockquote{
+  margin: 0 0 1rem;
+    padding: 15px 25px;
+    /* border-top: 1px solid; */
+    /* border-bottom: 2px solid var(--primary); */
+    border-left: 4px solid var(--primary);
+    font-size: 16px;
+    font-weight: 700;
 }

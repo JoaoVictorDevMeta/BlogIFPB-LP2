@@ -11,6 +11,7 @@
 }
 .register-container{
     background: white;
+    margin-top: 25px;
 }
 .information{background: var(--primary); color: white;}
 .login-form form{

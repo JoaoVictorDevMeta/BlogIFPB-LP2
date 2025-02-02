@@ -96,3 +96,35 @@
 .newpostImage{
   object-fit: cover;
 }
+.ql-editor{
+  font-family: "Red Hat Display", sans-serif;
+  letter-spacing: 1.1px;
+  margin-top: 0;
+}
+.ql-editor p{
+  font-size: 16px;
+  margin-bottom: 1rem !important;
+}
+.ql-editor blockquote{
+  margin: 0 0 1rem !important;
+    padding: 15px 25px !important;
+    /* border-top: 1px solid; */
+    /* border-bottom: 2px solid var(--primary); */
+    border-left: 4px solid var(--primary) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+.ql-editor h2{
+  font-size: 2rem !important;
+  margin-bottom: 20px !important;
+  padding-top: 15px !important;
+}
+.ql-editor ul{
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  padding-left: 2rem !important; 
+}
+.ql-editor li{
+  padding: 0 !important;
+  font-size: 1.25rem !important;
+}
