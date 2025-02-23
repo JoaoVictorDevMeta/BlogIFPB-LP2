@@ -1,3 +1,4 @@
+import React from 'react'
 import "./Home.css";
 import useBlogs from "../../data/hooks/home/useBlogs";
 

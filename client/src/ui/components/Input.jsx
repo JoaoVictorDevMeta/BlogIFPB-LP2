@@ -1,3 +1,5 @@
+import React from 'react'
+
 const InputField = ({ label, type, id, placeholder, className, registerOptions, errors }) => {
   return (
     <div className='input-text text-start'>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from "react";
 import "./Register.css";
 import { useForm } from "react-hook-form";
@@ -37,17 +38,14 @@ const Register = () => {
         name: data.name,
         email: data.email,
         password: data.password,
-        course: "Informática",
+        course: curso,
       }),
     })
       .then(async (data) => {
-        //se a resposta tiver um erro, seja ela 400, 401, 403 e etc.
-        //vai entrar nesse if e avisar o usuário
         if (!data.ok) {
           return setError("Esse usuário ja esta cadastrado");
         }
 
-        //caso nao, ele irá exibir este modal VVV
         await Swal.fire({
           title: "Cadastrado com Sucesso",
           text: "Seja bem vindo a nossa comunidade!",
@@ -109,7 +107,7 @@ const Register = () => {
                     "No special characters allowed",
                 },
               })}
-              errors={errors.nome}
+              errors={errors.name}
             />
 
             <div className="w-100 text-start">
@@ -165,7 +163,7 @@ const Register = () => {
           </button>
 
           {error ? (
-            <div class="alert alert-warning" role="alert">
+            <div className="alert alert-warning" role="alert">
               {error}
             </div>
           ) : null}

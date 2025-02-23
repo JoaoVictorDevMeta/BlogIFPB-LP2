@@ -1,3 +1,4 @@
+import React from 'react'
 import Select from 'react-select';
 
 const SelectField = ({ options, defaultValue, placeholder, onChange }) => {
