@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "node --watch app.js",
     "start": "node app.js",
+    "test": "node --test **/*.test.js",
     "db:load": "node src/db/seeders.js"
   },
   "prisma": {
@@ -30,6 +31,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "prisma": "^5.19.0"
+    "prisma": "^5.19.0",
+    "supertest": "^7.0.0"
   }
 }

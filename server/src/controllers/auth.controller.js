@@ -10,7 +10,7 @@ const saltRounds = Number(process.env.BCRYPT_SALT); //assumindo valor do Salt
 
 export async function register(req, res) {
     const { name, email, password, course } = req.body; //definindo variaveis que recebemos
-    console.log(req.body);
+    //console.log(req.body);
 
     try {
         const hashedPasswd = await bcrypt.hash(password, saltRounds); //senha criptografada
@@ -21,7 +21,7 @@ export async function register(req, res) {
             course,
         }); // adicionando o usuario
 
-        sendMail(
+        await sendMail(
             email,
             "Seja bem-vindo ao BlogIFPB!",
             `

@@ -55,18 +55,6 @@ GET {{domain}}/blog/all
 ### get blog
 GET {{domain}}/blog/1
 
-### create blog
-POST {{domain}}/blog/create
-Content-Type: application/json
-Authorization: Bearer {{token}}
-
-{
-    "category": "Pesquisa",
-    "title": "'Harry Potter': Paapa Essiedu é cotado para interpretar Snape na série, diz site",
-    "subTitle": "Descrição do blog 1",
-    "content": "O ator britânico Paapa Essiedu, 34, conhecido por sua participação nas séries 'I May Destroy You' e 'Gangs of London', pode dar vida ao professor Severus Snape na série de 'Harry Potter'. Segundo o The Hollywood Reporter, a HBO lhe ofereceu o papel. No entanto, não está claro se as negociações foram adiante. Na adaptação cinematográfica dos livros de J.K. Rowling, o personagem foi interpretado por Alan Rickman. ",
-    "image_url": "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1vkAOm.img?w=768&h=432&m=6&x=733&y=123&s=264&d=264"
-}
 
 ### ----------------------------------------------
 ### --------------------USER---------------------

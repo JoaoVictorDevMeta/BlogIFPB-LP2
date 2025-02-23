@@ -19,7 +19,7 @@ router.post("/create", isAuthenticated, validate(createCategorySchema), async (r
 
         const newCategory = await category.create(name);
 
-        res.json(newCategory);
+        res.status(201).json(newCategory);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

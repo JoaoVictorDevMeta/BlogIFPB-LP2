@@ -16,7 +16,7 @@ export const sendMail = async (email, subject, text) =>{
         })
 
         await transport.sendMail({
-            from: process.env.EMAIL_USER,
+            from: process.env.EMAIL_USER, //infolabsgerenciamento
             to: email,
             subject: subject,
             text: text,

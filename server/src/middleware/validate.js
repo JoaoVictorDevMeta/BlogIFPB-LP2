@@ -8,7 +8,6 @@ const validate = (schema) => {
             });
             next();
         } catch (e) {
-            console.log(e)
             res.status(400).json({ success: false, errors: e.errors });
         }
     };
