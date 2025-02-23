@@ -35,7 +35,7 @@ describe("api test", () => {
         user = createValidUser();
     });
 
-    describe('açaõ de um usuário', () => {
+    describe('ação de um usuário', () => {
         describe('POST /auth/register', () => {
             it("resgistrar um usuario", async () => {
                 const response = await request(app).post("/auth/register").send(user);
